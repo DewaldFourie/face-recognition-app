@@ -40,6 +40,8 @@ video.addEventListener('playing', () => {
     const displaySize = { width: video.width, height: video.height };
     faceapi.matchDimensions(canvas, displaySize);
 
+
+
     setInterval(async () => { 
         const detections = await faceapi
             .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
@@ -47,26 +49,28 @@ video.addEventListener('playing', () => {
             .withFaceExpressions()
             .withAgeAndGender();
 
-        const resizedDetections = faceapi.resizeResults(detections, displaySize);
-        canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+        if (detections) {
+            let resizedDetections = faceapi.resizeResults(detections, displaySize);
+            canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
 
-        // Drawing the detection box and landmarks on canvas
-        faceapi.draw.drawDetections(canvas, resizedDetections);
-        faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+            // Drawing the detection box and landmarks on canvas
+            faceapi.draw.drawDetections(canvas, resizedDetections);
+            faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
 
-        // Setting Values to the DOM
-        if (resizedDetections && Object.keys(resizedDetections).length > 0) {
-            const age = resizedDetections.age;
-            const interpolatedAge = interpolatedAgePredictions(age);
-            const gender = resizedDetections.gender;
-            const expressions = resizedDetections.expressions;
-            const maxValue = Math.max(...Object.values(expressions));
-            const emotion = Object.keys(expressions).filter(item => expressions[item] === maxValue);
-
-            document.getElementById('age').innerText = `Age - ${interpolatedAge}`;
-            document.getElementById('gender').innerText = `Gender - ${gender}`;
-            document.getElementById('emotion').innerText = `Emotion - ${emotion}`;
-        }
+            // Setting Values to the DOM
+            if (resizedDetections && Object.keys(resizedDetections).length > 0) {
+                const age = resizedDetections.age;
+                const interpolatedAge = interpolatedAgePredictions(age);
+                const gender = resizedDetections.gender;
+                const expressions = resizedDetections.expressions;
+                const maxValue = Math.max(...Object.values(expressions));
+                const emotion = Object.keys(expressions).filter(item => expressions[item] === maxValue);
+    
+                document.getElementById('age').innerText = `Age - ${interpolatedAge}`;
+                document.getElementById('gender').innerText = `Gender - ${gender}`;
+                document.getElementById('emotion').innerText = `Emotion - ${emotion}`;
+            }
+        } 
     }, 10)
 });
 

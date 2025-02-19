@@ -29,7 +29,7 @@ function screenResize(isScreenSmall) {
 }
 
 screenResize(isScreenSmall);
-isScreenSmall.addEventListener(screenResize);
+isScreenSmall.addEventListener('change', screenResize);
 
 // Event Listener for the video
 video.addEventListener('playing', () => {
@@ -42,7 +42,7 @@ video.addEventListener('playing', () => {
 
     setInterval(async () => { 
         const detections = await faceapi
-            .detectSingleFace(video, new faceapi.tinyFaceDetectorOptions())
+            .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
             .withFaceLandmarks()
             .withFaceExpressions()
             .withAgeAndGender();
@@ -73,6 +73,6 @@ video.addEventListener('playing', () => {
 // function to get age predictions
 function interpolatedAgePredictions(age) {
     predictedAges = [age].concat(predictedAges).slice(0, 30);
-    const avgPredictedAge = predictedAges.reduce((total , a) => total + a / predictedAges.length);
+    const avgPredictedAge = predictedAges.reduce((total , a) => total + a) / predictedAges.length;
     return avgPredictedAge;
 }

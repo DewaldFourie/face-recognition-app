@@ -38,7 +38,7 @@ let faceDetected = false;
 // Event Listener for the video
 video.addEventListener('playing', () => {
     const canvas = faceapi.createCanvasFromMedia(video);
-    let container = document.querySelector('.container');
+    let container = document.querySelector('.video-container');
     container.append(canvas);
 
     const displaySize = { width: video.width, height: video.height };

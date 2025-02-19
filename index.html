@@ -8,19 +8,26 @@
         <link rel="stylesheet" href="css/styles.css" />
     </head>
     <body>
-        <header>Face recognition in the browser using Javascript</header>
-        <div class="container">
-            <video id="video" height="500" width="500" autoplay muted></video>
+        <header>Face recognition</header>
+        <div class="main-container">
+            <div class="description-container">
+                <div>
+                    <span>This is where the description will be</span>
+                </div>
+            </div>
+            <div class="video-container">
+                <video id="video" height="500" width="500" autoplay muted></video>
+            </div>
+            <div class="result-container">
+                <div id="emotion">Emotion</div>
+                <div id="gender">Gender</div>
+                <div id="age">Age</div>
+            </div>
         </div>
-        <div class="result-container">
-            <div id="emotion">Emotion</div>
-            <div id="gender">Gender</div>
-            <div id="age">Age</div>
-        </div>
-        <script src="./js/face-api.min.js"></script>
-        <script src="./js/main.js"></script>
         <footer>
             <span>Created by ©DewaldFourie 2025</span>
         </footer>
+        <script src="./js/face-api.min.js"></script>
+        <script src="./js/main.js"></script>
     </body>
 </html>

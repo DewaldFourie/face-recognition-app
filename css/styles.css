@@ -1,17 +1,66 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #42a5f5;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
 body {
     margin: 0;
-    padding: 0;
+    padding-top: 80px;  
+    padding-bottom: 60px; 
     box-sizing: border-box;
     height: 100vh;
     background: #2f2f2f;
-    width: calc(100% - 33px);
+    width: 100%;
 }
+
 
 canvas {
     position: absolute;
 }
 
-.container {
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1e94be;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 20px; /* Spacing between columns */
+    width: 90%;
+    margin: 0 auto; /* Centers the container */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 90%;
+}
+
+.description-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    height: 80%;
+}
+
+.video-container {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -24,13 +73,15 @@ canvas {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: aliceblue;
+    height: 80%;
 }
 
 .result-container>div {
     font-size: 1.3rem;
     padding: 0.5rem;
     margin: 5px 0;
-    color: white;
+    color: rgb(255, 255, 255);
     text-transform: capitalize;
 }
 
@@ -50,11 +101,42 @@ video {
     width: 100%;
 }
 
-header {
-    background: #42a5f5;
+
+
+
+footer { 
     color: white;
-    width: 100%;
-    font-size: 2rem;
-    padding: 1rem;
-    font-size: 2rem;
+    background-color: #1e94be;
+}
+
+
+/* ✅ MEDIA QUERIES FOR RESPONSIVENESS */
+
+/* For Tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    header {
+        font-size: 1.4rem;
+        padding: 0.8rem;
+    }
+
+    footer {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+}
+
+
+/* For Phones (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    header {
+        font-size: 1.2rem;
+        padding: 0.6rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
+        padding: 0.6rem;
+    }
+
 }

@@ -31,6 +31,10 @@ function screenResize(isScreenSmall) {
 screenResize(isScreenSmall);
 isScreenSmall.addEventListener('change', screenResize);
 
+// set tracking of Face found
+let lastFaceDetectionTime = Date.now();
+let faceDetected = false;
+
 // Event Listener for the video
 video.addEventListener('playing', () => {
     const canvas = faceapi.createCanvasFromMedia(video);
@@ -40,8 +44,6 @@ video.addEventListener('playing', () => {
     const displaySize = { width: video.width, height: video.height };
     faceapi.matchDimensions(canvas, displaySize);
 
-
-
     setInterval(async () => { 
         const detections = await faceapi
             .detectSingleFace(video, new faceapi.TinyFaceDetectorOptions())
@@ -50,6 +52,12 @@ video.addEventListener('playing', () => {
             .withAgeAndGender();
 
         if (detections) {
+            if (!faceDetected) {
+                console.log("Face detected!");
+                faceDetected = true; // Update state
+            }
+            lastFaceDetectionTime = Date.now();
+
             let resizedDetections = faceapi.resizeResults(detections, displaySize);
             canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
 
@@ -64,14 +72,22 @@ video.addEventListener('playing', () => {
                 const gender = resizedDetections.gender;
                 const expressions = resizedDetections.expressions;
                 const maxValue = Math.max(...Object.values(expressions));
-                const emotion = Object.keys(expressions).filter(item => expressions[item] === maxValue);
+                const emotion = Object.keys(expressions).find(item => expressions[item] === maxValue);
     
                 document.getElementById('age').innerText = `Age - ${interpolatedAge}`;
                 document.getElementById('gender').innerText = `Gender - ${gender}`;
                 document.getElementById('emotion').innerText = `Emotion - ${emotion}`;
+            } 
+        }
+        
+        const currentTime = Date.now();
+        if (currentTime - lastFaceDetectionTime > 5000) {
+            if (faceDetected) {
+                console.log('No Face Detected for 5 seconds');
+                faceDetected = false; // Update state
             }
-        } 
-    }, 10)
+        }
+    }, 100);
 });
 
 // function to get age predictions

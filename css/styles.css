@@ -78,8 +78,39 @@ footer>span {
     border-radius: 25px;
     margin: 10px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    gap: 1rem;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.description-header {
+    font-size: 28px;
+}
+
+.description-text-top {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 20px;
+}
+
+.description-text-content{
+    text-align: start;
+    margin-bottom: 1rem;
+    font-size: 18px;
+}
+
+
+.highlight-green {
+    color: #00ffbb;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+strong {
+    font-size: larger;
+
 }
 
 /* Video container */
@@ -158,20 +189,12 @@ h3 {
 
 
 /* ID Selectors */
-#age {
+#age,  #emotion , #gender{
     text-align: start;
     width: 4rem;
+    font-size: 28px;
 }
 
-#emotion {
-    text-align: start;
-    width: 4rem;
-}
-
-#gender {
-    text-align: start;
-    width: 4rem;
-}
 
 /* Video */
 video {
@@ -279,5 +302,18 @@ footer {
         top: 4.5%;
         left:50%;
         transform: translateX(-50%);
+    }
+
+    #age,  #emotion , #gender{
+        text-align: start;
+        width: 4rem;
+        font-size: 22px;
+    }
+
+    h3 {
+        text-align: center;
+        font-size: 22px;
+        color: #00ffbb;
+        width: 6rem;
     }
 }

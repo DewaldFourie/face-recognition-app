@@ -77,9 +77,9 @@ video.addEventListener('playing', () => {
                 const maxValue = Math.max(...Object.values(expressions));
                 const emotion = Object.keys(expressions).find(item => expressions[item] === maxValue);
     
-                document.getElementById('age').innerText = `Age - ${interpolatedAge}`;
-                document.getElementById('gender').innerText = `Gender - ${gender}`;
-                document.getElementById('emotion').innerText = `Emotion - ${emotion}`;
+                document.getElementById('age').innerText = `${interpolatedAge}`;
+                document.getElementById('gender').innerText = `${gender}`;
+                document.getElementById('emotion').innerText = `${emotion}`;
             } 
         }
         

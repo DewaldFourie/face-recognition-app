@@ -93,6 +93,6 @@ video.addEventListener('playing', () => {
 // function to get age predictions
 function interpolatedAgePredictions(age) {
     predictedAges = [age].concat(predictedAges).slice(0, 30);
-    const avgPredictedAge = predictedAges.reduce((total , a) => total + a) / predictedAges.length;
+    const avgPredictedAge = Math.floor(predictedAges.reduce((total , a) => total + a) / predictedAges.length);
     return avgPredictedAge;
 }

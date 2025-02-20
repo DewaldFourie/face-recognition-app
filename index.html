@@ -11,17 +11,24 @@
         <header>Face recognition</header>
         <div class="main-container">
             <div class="description-container">
-                <div>
-                    <span>This is where the description will be</span>
+                <div class="description-text-container">
+                    <span class="description-text">This is where the description will be</span>
                 </div>
             </div>
             <div class="video-container">
+                <div id="face-alert" class="hidden">No Face Detected</div>
                 <video id="video" height="500" width="500" autoplay muted></video>
             </div>
             <div class="result-container">
-                <div id="emotion">Emotion</div>
-                <div id="gender">Gender</div>
-                <div id="age">Age</div>
+                <div class="emotion-container">
+                    <div id="emotion">Emotion</div>
+                </div>
+                <div class="gender-container">
+                    <div id="gender">Gender</div>
+                </div>
+                <div class="age-container">
+                    <div id="age">Age</div>
+                </div>
             </div>
         </div>
         <footer>

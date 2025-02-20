@@ -34,6 +34,7 @@ isScreenSmall.addEventListener('change', screenResize);
 // set tracking of Face found
 let lastFaceDetectionTime = Date.now();
 let faceDetected = false;
+const faceAlert = document.getElementById('face-alert');
 
 // Event Listener for the video
 video.addEventListener('playing', () => {
@@ -55,6 +56,8 @@ video.addEventListener('playing', () => {
             if (!faceDetected) {
                 console.log("Face detected!");
                 faceDetected = true; // Update state
+                faceAlert.classList.remove('visible');
+                faceAlert.classList.add('hidden');
             }
             lastFaceDetectionTime = Date.now();
 
@@ -85,6 +88,8 @@ video.addEventListener('playing', () => {
             if (faceDetected) {
                 console.log('No Face Detected for 5 seconds');
                 faceDetected = false; // Update state
+                faceAlert.classList.remove('hidden');
+                faceAlert.classList.add('visible');
             }
         }
     }, 100);

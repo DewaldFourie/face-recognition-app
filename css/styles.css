@@ -14,6 +14,10 @@ header {
     z-index: 1000;
 }
 
+.highlight-ai {
+    color: white;
+}
+
 /* Body */
 body {
     margin: 0;
@@ -21,7 +25,7 @@ body {
     padding-bottom: 60px; 
     box-sizing: border-box;
     height: 100vh;
-    background: #121212; /* Darker background */
+    background: #b3b3b3a9; 
     width: 100%;
     color: #00ffd0; /* Default text color */
 }
@@ -58,6 +62,14 @@ footer>span {
     justify-content: center;
     padding: 20px;
     height: 90%;
+    perspective: 1000px
+}
+
+.description-container, .result-container {
+    transform-origin: center;
+    transform: rotateY(10deg); /* Adds slight inward tilt */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); /* Adds depth effect */
+    transition: transform 0.3s ease-in-out;
 }
 
 /* Description container */
@@ -70,6 +82,8 @@ footer>span {
     height: 80%;
     border-radius: 25px;
 }
+
+
 
 .description-text-container {
     background-color: #000000;
@@ -100,6 +114,7 @@ footer>span {
 
 .description-header {
     font-size: 28px;
+    color: #00ffbb;
 }
 
 .description-text-top {
@@ -137,7 +152,7 @@ strong {
 
 #face-alert {
     position: absolute;
-    top: 15%;
+    top: 8%;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(255, 0, 0, 0.8);
@@ -170,7 +185,7 @@ strong {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     border-radius: 25px;
-    
+    transform: rotateY(-10deg);
 }
 
 /* Emotion, Gender, Age Sections */
@@ -212,11 +227,14 @@ h3 {
 /* Video */
 video {
     width: 100%;
-    border: 1px solid #00ffbb;
+    border: 1px solid #000000;
     border-radius: 25px;
     margin: 0;
     padding: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds subtle shadow around the video */
+    transition: box-shadow 0.3s ease-in-out;
 }
+
 
 /* Footer (Re-declared to ensure correct styles) */
 footer { 
@@ -258,10 +276,16 @@ footer {
         transform: translateX(-50%);
     }
 
+    .description-container, .result-container {
+        transform-origin: center;
+        transform: rotateY(0deg); /* Adds slight inward tilt */
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5); /* Adds depth effect */
+        transition: transform 0.3s ease-in-out;
+    }
+
     .description-container {
         margin-top: 0;
         height: 400px;
-        
     }
 
     .description-text-container {
@@ -349,7 +373,7 @@ footer {
     }
 
     #face-alert {
-        top: 75%;
+        top: 38.5%;
         left:50%;
         transform: translateX(-50%);
     }

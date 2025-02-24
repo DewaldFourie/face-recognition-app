@@ -400,7 +400,6 @@ footer {
     .main-container {
         padding-top: 10px;
         height: auto;
-        padding-bottom: 60px; /* Avoid footer overlap */
     }
 
     .description-container,
@@ -440,7 +439,6 @@ footer {
 
     .result-container {
         height: 300px;
-        margin-top: 3rem;
     }
 
     .emotion-container, .gender-container, .age-container {
@@ -457,7 +455,7 @@ footer {
     }
 
     #face-alert {
-        top: 37%;
+        top: 40%;
         left:50%;
         transform: translateX(-50%);
         font-size: 15px;

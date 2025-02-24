@@ -135,7 +135,6 @@ footer>span {
     padding-left: 15px;
     padding-right: 15px;
     overflow-y: auto;
-
 }
 
 .description-text-container::-webkit-scrollbar {
@@ -152,6 +151,7 @@ footer>span {
     font-size: 28px;
     color: #ffcc00;
     font-family: 'RobotoMono', monospace;
+    padding-top: 80px;
 }
 
 .description-text-top {

@@ -1,5 +1,5 @@
 const video = document.getElementById('video');
-const isScreenSmall = window.matchMedia('(max-width: 1400px)');
+const isScreenSmall = window.matchMedia('(max-width: 1800px)');
 let predictedAges = [];
 
 // Loading the model

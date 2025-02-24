@@ -12,13 +12,16 @@ Promise.all([
 ]).then(startVideo);
 
 
-function startVideo() {
-    navigator.getUserMedia(
-        { video: {} },
-        stream => (video.srcObject = stream),
-        err => console.error(err)
-    );
+async function startVideo() {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } });
+        video.srcObject = stream;
+        video.setAttribute("playsinline", true); // Ensures video works on iOS
+    } catch (error) {
+        console.error("Camera access denied:", error);
+    }
 }
+
 
 
 // fixing the video width based on screen size 

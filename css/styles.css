@@ -264,6 +264,7 @@ h3 {
     color: #ffcc00;
     width: 6rem;
     font-family: 'RobotoMono', monospace;
+    
 }
 
 
@@ -426,6 +427,7 @@ footer {
         font-size: 20px;
         display: flex;
         align-items: center;
+        padding-top: 0px;
     }
 
     .description-text-top {

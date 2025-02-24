@@ -11,6 +11,7 @@ Promise.all([
     faceapi.nets.ageGenderNet.loadFromUri("/models")
 ]).then(startVideo);
 
+
 function startVideo() {
     navigator.getUserMedia(
         { video: {} },
@@ -18,6 +19,7 @@ function startVideo() {
         err => console.error(err)
     );
 }
+
 
 // fixing the video width based on screen size 
 function screenResize(isScreenSmall) {
